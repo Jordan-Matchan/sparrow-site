@@ -24,6 +24,7 @@
         <a href="#about" class="text-textSecondary hover:text-textPrimary transition-colors">About</a>
         <a href="#portfolio" class="text-textSecondary hover:text-textPrimary transition-colors">Portfolio</a>
         <a href="#contact" class="text-textSecondary hover:text-textPrimary transition-colors">Contact</a>
+        <a href="#/admin" class="text-textSecondary/60 hover:text-accent transition-colors text-xs" title="Studio (sign in to GitHub to publish)">Studio</a>
       </div>
     </div>
   </div>

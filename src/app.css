@@ -708,6 +708,32 @@ body::-webkit-scrollbar-thumb:hover {
   color: #E8F0F5;
 }
 
+/* ===== Admin / Studio inputs ===== */
+.admin-input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #160a20;
+  border: 1px solid #3a1d4d;
+  border-radius: 0.5rem;
+  color: #E8F0F5;
+  font-family: 'VCR OSD Mono', ui-monospace, monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-input::placeholder {
+  color: #A98DC0;
+  opacity: 0.6;
+}
+
+.admin-input:focus {
+  outline: none;
+  border-color: #E781FF;
+  box-shadow: 0 0 0 3px rgba(231, 129, 255, 0.15);
+}
+
 /* ===== Blog ===== */
 .blog-card {
   display: block;

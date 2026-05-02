@@ -8,6 +8,7 @@
   import Portfolio from './lib/Portfolio.svelte';
   import Blog from './lib/Blog.svelte';
   import BlogPost from './lib/BlogPost.svelte';
+  import Admin from './lib/Admin.svelte';
   import Contact from './lib/Contact.svelte';
   import Footer from './lib/Footer.svelte';
   import Lightbox from './lib/Lightbox.svelte';
@@ -21,8 +22,10 @@
 
   function parseRoute() {
     const hash = typeof window === 'undefined' ? '' : window.location.hash;
-    const m = hash.match(/^#\/blog\/([^/?#]+)/);
-    return m ? { name: 'post', slug: decodeURIComponent(m[1]) } : { name: 'home' };
+    const post = hash.match(/^#\/blog\/([^/?#]+)/);
+    if (post) return { name: 'post', slug: decodeURIComponent(post[1]) };
+    if (/^#\/admin\/?$/.test(hash)) return { name: 'admin' };
+    return { name: 'home' };
   }
 
   function openLightbox(items, index) {
@@ -49,8 +52,8 @@
     const onHashChange = () => {
       const next = parseRoute();
       route = next;
-      // When entering a post page, jump to top so the header is visible.
-      if (next.name === 'post') {
+      // When entering a post / admin page, jump to top so the header is visible.
+      if (next.name === 'post' || next.name === 'admin') {
         window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
       }
     };
@@ -69,6 +72,8 @@
 
 {#if route.name === 'post'}
   <BlogPost slug={route.slug} />
+{:else if route.name === 'admin'}
+  <Admin />
 {:else}
   <Hero />
   <About />
