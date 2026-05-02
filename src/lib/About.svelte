@@ -43,22 +43,22 @@
         <div class="grid grid-cols-2 gap-6 mb-8">
           <div class="p-4 rounded-xl bg-surface border border-border">
             <PenTool class="w-5 h-5 text-accent mb-2" />
-            <h4 class="font-display font-semibold text-sm mb-1">Character Design</h4>
+            <h4 class="font-body font-bold text-base mb-1 tracking-wide">Character Design</h4>
             <p class="text-xs text-textSecondary">Original characters & concepts</p>
           </div>
           <div class="p-4 rounded-xl bg-surface border border-border">
             <Mountain class="w-5 h-5 text-warm mb-2" />
-            <h4 class="font-display font-semibold text-sm mb-1">Environment Art</h4>
+            <h4 class="font-body font-bold text-base mb-1 tracking-wide">Environment Art</h4>
             <p class="text-xs text-textSecondary">Worlds & atmospheres</p>
           </div>
           <div class="p-4 rounded-xl bg-surface border border-border">
             <Box class="w-5 h-5 text-accent mb-2" />
-            <h4 class="font-display font-semibold text-sm mb-1">3D Modeling</h4>
+            <h4 class="font-body font-bold text-base mb-1 tracking-wide">3D Modeling</h4>
             <p class="text-xs text-textSecondary">Stylised game assets</p>
           </div>
           <div class="p-4 rounded-xl bg-surface border border-border">
             <Sparkles class="w-5 h-5 text-warm mb-2" />
-            <h4 class="font-display font-semibold text-sm mb-1">VFX</h4>
+            <h4 class="font-body font-bold text-base mb-1 tracking-wide">VFX</h4>
             <p class="text-xs text-textSecondary">Visual effects & post</p>
           </div>
         </div>
