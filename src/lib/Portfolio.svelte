@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import { Expand } from 'lucide-svelte';
   import { portfolioItems } from './portfolioData.js';
 
@@ -22,16 +21,25 @@
   }
 
   let section;
-  onMount(() => {
+  // Re-observe `.reveal` elements whenever the filtered list changes so that
+  // newly-mounted cards get the reveal class applied. Reading visibleItems
+  // inside the effect makes Svelte 5 track it as a dependency.
+  $effect(() => {
+    visibleItems;
+    if (!section) return;
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('revealed');
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            obs.unobserve(entry.target);
+          }
         });
       },
       { threshold: 0.1 }
     );
-    section?.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+    const els = section.querySelectorAll('.reveal:not(.revealed)');
+    els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
   });
 </script>
@@ -62,7 +70,7 @@
           class="portfolio-item reveal"
           class:portfolio-item-wide={item.wide}
           onclick={() => handleClick(i)}
-          style:transition-delay={`${i * 0.08}s`}
+          style:transition-delay={`${Math.min(i, 6) * 0.06}s`}
           aria-label={`Open ${item.title}`}
         >
           <img src={item.src} alt={item.title} class="portfolio-img" />
