@@ -269,16 +269,17 @@ body::-webkit-scrollbar-thumb:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.875rem 2rem;
+  padding: 1rem 2.25rem;
   background: linear-gradient(135deg, #E781FF, #922AB1);
   color: #0c0613;
-  font-family: 'Grape Soda', sans-serif;
-  font-weight: 600;
-  font-size: 0.875rem;
-  letter-spacing: 0.03em;
+  font-family: 'VCR OSD Mono', ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   border-radius: 12px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
 }
@@ -287,14 +288,15 @@ body::-webkit-scrollbar-thumb:hover {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #F0A8FF, #B045D0);
+  background: linear-gradient(135deg, #922AB1, #4C0E61);
   opacity: 0;
   transition: opacity 0.3s;
 }
 
 .btn-primary:hover {
+  color: #C9F6FF;
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(231, 129, 255, 0.3);
+  box-shadow: 0 8px 30px rgba(76, 14, 97, 0.5);
 }
 
 .btn-primary:hover::before {
@@ -310,13 +312,14 @@ body::-webkit-scrollbar-thumb:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.875rem 2rem;
+  padding: 1rem 2.25rem;
   background: transparent;
   color: #E8F0F5;
-  font-family: 'Grape Soda', sans-serif;
-  font-weight: 600;
-  font-size: 0.875rem;
-  letter-spacing: 0.03em;
+  font-family: 'VCR OSD Mono', ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   border-radius: 12px;
   text-decoration: none;
   border: 1px solid #3a1d4d;
@@ -538,17 +541,18 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* ===== Filter Buttons ===== */
 .filter-btn {
-  padding: 0.5rem 1.25rem;
-  font-family: 'Grape Soda', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  font-family: 'VCR OSD Mono', ui-monospace, monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
   color: #A98DC0;
   background: transparent;
   border: 1px solid #3a1d4d;
   border-radius: 999px;
   cursor: pointer;
   transition: all 0.3s ease;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .filter-btn:hover {
