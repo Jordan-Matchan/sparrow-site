@@ -1,5 +1,9 @@
 <script>
   import logo from '../assets/logo.svg';
+
+  const startYear = 2025;
+  const currentYear = new Date().getFullYear();
+  const yearRange = currentYear > startYear ? `${startYear}–${currentYear}` : `${startYear}`;
 </script>
 
 <footer class="border-t border-border py-12">
@@ -14,7 +18,7 @@
           <img src={logo} alt="" class="h-12 w-auto" />
           <span class="wordmark font-display text-2xl font-bold tracking-wider">Retro Insomnium</span>
         </a>
-        <p class="text-xs text-textSecondary">© Sparrow Matchan 2025. All rights reserved.</p>
+        <p class="text-xs text-textSecondary">© Sparrow Matchan {yearRange}. All rights reserved.</p>
       </div>
       <div class="flex items-center gap-6 text-sm">
         <a href="#about" class="text-textSecondary hover:text-textPrimary transition-colors">About</a>
