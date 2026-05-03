@@ -20,12 +20,12 @@
         </a>
         <p class="text-xs text-textSecondary">© Sparrow Matchan {yearRange}. All rights reserved.</p>
       </div>
-      <div class="flex items-center gap-6 text-sm">
+      <nav class="flex items-center gap-6 text-sm" aria-label="Footer">
         <a href="#about" class="text-textSecondary hover:text-textPrimary transition-colors">About</a>
         <a href="#portfolio" class="text-textSecondary hover:text-textPrimary transition-colors">Portfolio</a>
         <a href="#contact" class="text-textSecondary hover:text-textPrimary transition-colors">Contact</a>
         <a href="#/admin" class="text-textSecondary/60 hover:text-accent transition-colors text-xs" title="Studio (sign in to GitHub to publish)">Studio</a>
-      </div>
+      </nav>
     </div>
   </div>
 </footer>

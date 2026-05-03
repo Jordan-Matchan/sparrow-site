@@ -42,7 +42,7 @@
           <a
             href="https://www.instagram.com/retroinsomnium/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="social-icon"
             aria-label="Instagram"
           >
@@ -51,7 +51,7 @@
           <a
             href="https://www.linkedin.com/in/jordan-matchan-b270b2368/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="social-icon"
             aria-label="LinkedIn"
           >
@@ -63,7 +63,7 @@
           <a
             href="https://retroinsomnium.tumblr.com/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="social-icon"
             aria-label="Tumblr"
           >
@@ -76,6 +76,8 @@
               stroke-linecap="round"
               stroke-linejoin="round"
               class="w-5 h-5"
+              aria-hidden="true"
+              focusable="false"
             >
               <path d="M17 4v4h-2v4h2v5a3 3 0 0 0 3 3h2v-4h-2v-4h2V8h-2V4z" transform="translate(-3 0)" />
             </svg>
@@ -83,7 +85,7 @@
           <a
             href="https://www.youtube.com/@retroinsomnium"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="social-icon"
             aria-label="YouTube"
           >

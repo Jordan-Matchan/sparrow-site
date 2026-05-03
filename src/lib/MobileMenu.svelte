@@ -13,7 +13,15 @@
   ];
 </script>
 
-<div class="mobile-menu" class:open>
+<div
+  class="mobile-menu"
+  class:open
+  role="dialog"
+  aria-modal="true"
+  aria-label="Site navigation"
+  aria-hidden={!open}
+  inert={!open}
+>
   <div class="mobile-menu-header">
     <div class="flex items-center gap-2">
       <img src={logo} alt="" class="h-10 w-auto" />
@@ -23,9 +31,9 @@
       <X class="w-6 h-6" />
     </button>
   </div>
-  <div class="mobile-menu-links">
+  <nav class="mobile-menu-links" aria-label="Mobile primary">
     {#each links as link}
       <a href={link.href} class="mobile-link" onclick={onClose}>{link.label}</a>
     {/each}
-  </div>
+  </nav>
 </div>

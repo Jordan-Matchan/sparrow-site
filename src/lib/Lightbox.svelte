@@ -28,7 +28,15 @@
   });
 </script>
 
-<div class="lightbox" class:open aria-hidden={!open}>
+<div
+  class="lightbox"
+  class:open
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image viewer"
+  aria-hidden={!open}
+  inert={!open}
+>
   <button class="lightbox-close" aria-label="Close lightbox" onclick={onClose}>
     <X class="w-6 h-6" />
   </button>
@@ -40,7 +48,7 @@
   </button>
   <div class="lightbox-content">
     {#if current}
-      <img src={current.src} alt={current.title} class="lightbox-image" />
+      <img src={current.src} alt={current.title ?? ''} class="lightbox-image" />
       <div class="lightbox-info">
         <h3 class="font-display font-semibold text-lg">{current.title}</h3>
       </div>
@@ -50,6 +58,7 @@
     type="button"
     class="lightbox-backdrop"
     aria-label="Close lightbox"
+    tabindex="-1"
     onclick={onClose}
   ></button>
 </div>

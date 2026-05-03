@@ -70,6 +70,7 @@
 
 <MobileMenu open={mobileMenuOpen} onClose={closeMobileMenu} />
 
+<main id="main">
 {#if route.name === 'post'}
   <BlogPost slug={route.slug} />
 {:else if route.name === 'admin'}
@@ -81,6 +82,7 @@
   <Blog />
   <Contact />
 {/if}
+</main>
 <Footer />
 
 <Lightbox

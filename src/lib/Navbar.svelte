@@ -40,7 +40,7 @@
   });
 </script>
 
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" class:scrolled>
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" class:scrolled aria-label="Primary">
   <div class="nav-inner max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <a
       href="#hero"

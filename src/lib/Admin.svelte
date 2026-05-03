@@ -94,11 +94,13 @@
     </header>
 
     <div class="space-y-5 mb-10">
-      <label class="block">
+      <label class="block" for="admin-title">
         <span class="text-xs font-medium tracking-[0.2em] uppercase text-textSecondary block mb-2">
           Title
         </span>
         <input
+          id="admin-title"
+          name="title"
           type="text"
           bind:value={title}
           placeholder="Monthly Blog Post November 2026"
@@ -106,18 +108,20 @@
         />
       </label>
 
-      <label class="block">
+      <label class="block" for="admin-date">
         <span class="text-xs font-medium tracking-[0.2em] uppercase text-textSecondary block mb-2">
           Date
         </span>
-        <input type="date" bind:value={date} class="admin-input" />
+        <input id="admin-date" name="date" type="date" bind:value={date} class="admin-input" />
       </label>
 
-      <label class="block">
+      <label class="block" for="admin-excerpt">
         <span class="text-xs font-medium tracking-[0.2em] uppercase text-textSecondary block mb-2">
           Excerpt <span class="text-textSecondary/60 normal-case tracking-normal">(optional, shows on the blog list)</span>
         </span>
         <textarea
+          id="admin-excerpt"
+          name="excerpt"
           bind:value={excerpt}
           rows="2"
           placeholder="One or two sentences summarising the post."
@@ -133,7 +137,7 @@
 
       <div class="flex flex-wrap gap-3">
         {#if createUrl}
-          <a class="btn-primary" href={createUrl} target="_blank" rel="noopener">
+          <a class="btn-primary" href={createUrl} target="_blank" rel="noopener noreferrer">
             <FilePlus class="w-4 h-4" />
             Open editor on GitHub
             <ExternalLink class="w-4 h-4" />
@@ -162,7 +166,7 @@
           <a
             href={editPostUrl(post)}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="flex items-center justify-between gap-4 p-4 rounded-lg border border-border hover:border-accent hover:bg-surface/60 transition-colors"
           >
             <div class="min-w-0">
@@ -177,12 +181,12 @@
 
     <div class="text-xs text-textSecondary space-y-1">
       <div>
-        <a class="hover:text-accent transition-colors" href={folderUrl} target="_blank" rel="noopener">
+        <a class="hover:text-accent transition-colors" href={folderUrl} target="_blank" rel="noopener noreferrer">
           Browse the blog folder on GitHub →
         </a>
       </div>
       <div>
-        <a class="hover:text-accent transition-colors" href={actionsUrl} target="_blank" rel="noopener">
+        <a class="hover:text-accent transition-colors" href={actionsUrl} target="_blank" rel="noopener noreferrer">
           See the latest deploy run →
         </a>
       </div>
