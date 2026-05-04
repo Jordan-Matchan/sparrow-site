@@ -3,7 +3,7 @@
   import { ArrowLeft, ExternalLink, FilePlus, Pencil } from 'lucide-svelte';
   import { getPosts, formatDate } from './posts.js';
 
-  const REPO = 'Mooshieblob1/sparrow-site';
+  const REPO = 'Jordan-Matchan/sparrow-site';
   const BRANCH = 'main';
   const BLOG_DIR = 'src/content/blog';
 
