@@ -282,6 +282,7 @@ body::-webkit-scrollbar-thumb:hover {
   transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .btn-primary::before {
@@ -291,6 +292,7 @@ body::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #922AB1, #4C0E61);
   opacity: 0;
   transition: opacity 0.3s;
+  z-index: -1;
 }
 
 .btn-primary:hover {
