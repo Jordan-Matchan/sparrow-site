@@ -1,3 +1,4 @@
+import DOMPurify from 'dompurify';
 import { marked } from 'marked';
 
 // Vite glob: bundles every .md file in src/content/blog as a raw string at build time.
@@ -54,7 +55,7 @@ const posts = Object.entries(files)
       date: data.date || '',
       excerpt,
       body,
-      html: marked.parse(body),
+      html: DOMPurify.sanitize(marked.parse(body)),
     };
   })
   .sort((a, b) => (a.date < b.date ? 1 : -1));

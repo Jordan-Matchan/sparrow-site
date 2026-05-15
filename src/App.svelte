@@ -15,6 +15,7 @@
 
   let mobileMenuOpen = $state(false);
   let lightboxState = $state({ open: false, items: [], index: 0 });
+  let modalOpen = $derived(mobileMenuOpen || lightboxState.open);
 
   // Hash-based routing. `#/blog/<slug>` shows a single post; everything
   // else (including bare `#section` anchors) shows the home page.
@@ -66,6 +67,8 @@
 
 <div class="noise-overlay"></div>
 
+<div inert={modalOpen} aria-hidden={modalOpen ? 'true' : undefined}>
+<a href="#main" class="skip-link">Skip to main content</a>
 <Navbar onOpenMobileMenu={openMobileMenu} />
 
 <MobileMenu open={mobileMenuOpen} onClose={closeMobileMenu} />
@@ -84,6 +87,7 @@
 {/if}
 </main>
 <Footer />
+</div>
 
 <Lightbox
   open={lightboxState.open}

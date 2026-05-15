@@ -52,7 +52,12 @@
     </a>
     <div class="hidden md:flex items-center gap-1">
       {#each links as link}
-        <a href={`#${link.id}`} class="nav-link" class:active={activeSection === link.id}>
+        <a
+          href={`#${link.id}`}
+          class="nav-link"
+          class:active={activeSection === link.id}
+          aria-current={activeSection === link.id ? 'location' : undefined}
+        >
           {link.label}
         </a>
       {/each}

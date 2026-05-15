@@ -55,9 +55,14 @@
       <p class="text-textSecondary max-w-lg mx-auto">A collection of illustrations, concept art, and 3D projects.</p>
     </div>
 
-    <div class="flex justify-center gap-2 mb-12 flex-wrap">
+    <div class="flex justify-center gap-2 mb-12 flex-wrap" role="group" aria-label="Portfolio filters">
       {#each filters as f}
-        <button class="filter-btn" class:active={filter === f.id} onclick={() => (filter = f.id)}>
+        <button
+          class="filter-btn"
+          class:active={filter === f.id}
+          aria-pressed={filter === f.id}
+          onclick={() => (filter = f.id)}
+        >
           {f.label}
         </button>
       {/each}

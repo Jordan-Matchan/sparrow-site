@@ -3,6 +3,9 @@
   import { Mail, Instagram, Linkedin, Youtube } from 'lucide-svelte';
 
   let section;
+  const _e = ['j.m.matchan', '\u0040', 'gmail', '\u002E', 'com'].join('');
+  const mailtoHref = `mailto:${_e}`;
+
   onMount(() => {
     const obs = new IntersectionObserver(
       (entries) => {
@@ -34,10 +37,10 @@
         <p class="text-textSecondary max-w-md mx-auto mb-10">
           Have a project in mind? I'd love to hear about it. Let's bring your creative vision to life.
         </p>
-        <a href="mailto:j.m.matchan@gmail.com" class="btn-primary inline-flex items-center gap-2 mb-10">
+        <button type="button" onclick={() => window.location.href = mailtoHref} class="btn-primary inline-flex items-center gap-2 mb-10">
           <Mail class="w-4 h-4" />
           Contact Me
-        </a>
+        </button>
         <div class="flex justify-center gap-4">
           <a
             href="https://www.instagram.com/retroinsomnium/"
@@ -57,9 +60,9 @@
           >
             <Linkedin class="w-5 h-5" />
           </a>
-          <a href="mailto:j.m.matchan@gmail.com" class="social-icon" aria-label="Email">
+          <button type="button" onclick={() => window.location.href = mailtoHref} class="social-icon" aria-label="Email">
             <Mail class="w-5 h-5" />
-          </a>
+          </button>
           <a
             href="https://retroinsomnium.tumblr.com/"
             target="_blank"

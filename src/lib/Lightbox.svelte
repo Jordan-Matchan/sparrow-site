@@ -3,8 +3,21 @@
   import { X, ChevronLeft, ChevronRight } from 'lucide-svelte';
 
   let { open, items, index, onClose, onIndexChange } = $props();
+  let dialog;
+  let closeButton;
+  let lastOpen = false;
+  let previousFocus;
 
   let current = $derived(items?.[index]);
+
+  const focusableSelector = [
+    'a[href]:not([tabindex="-1"])',
+    'button:not([disabled]):not([tabindex="-1"])',
+    'input:not([disabled]):not([tabindex="-1"])',
+    'select:not([disabled]):not([tabindex="-1"])',
+    'textarea:not([disabled]):not([tabindex="-1"])',
+    '[tabindex]:not([tabindex="-1"])',
+  ].join(',');
 
   function prev() {
     if (!items.length) return;
@@ -15,12 +28,51 @@
     onIndexChange((index + 1) % items.length);
   }
 
+  function focusableElements() {
+    if (!dialog) return [];
+    return [...dialog.querySelectorAll(focusableSelector)].filter((el) => el.getClientRects().length);
+  }
+
   function onKey(e) {
     if (!open) return;
-    if (e.key === 'Escape') onClose();
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      onClose();
+    }
     if (e.key === 'ArrowLeft') prev();
     if (e.key === 'ArrowRight') next();
+    if (e.key !== 'Tab') return;
+
+    const focusable = focusableElements();
+    if (!focusable.length) {
+      e.preventDefault();
+      dialog?.focus({ preventScroll: true });
+      return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (!dialog.contains(document.activeElement)) {
+      e.preventDefault();
+      first.focus({ preventScroll: true });
+    } else if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus({ preventScroll: true });
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus({ preventScroll: true });
+    }
   }
+
+  $effect(() => {
+    if (open && !lastOpen) {
+      previousFocus = document.activeElement;
+      queueMicrotask(() => closeButton?.focus({ preventScroll: true }));
+    } else if (!open && lastOpen) {
+      queueMicrotask(() => previousFocus?.focus?.({ preventScroll: true }));
+    }
+    lastOpen = open;
+  });
 
   onMount(() => {
     document.addEventListener('keydown', onKey);
@@ -29,6 +81,7 @@
 </script>
 
 <div
+  bind:this={dialog}
   class="lightbox"
   class:open
   role="dialog"
@@ -36,8 +89,9 @@
   aria-label="Image viewer"
   aria-hidden={!open}
   inert={!open}
+  tabindex="-1"
 >
-  <button class="lightbox-close" aria-label="Close lightbox" onclick={onClose}>
+  <button bind:this={closeButton} class="lightbox-close" aria-label="Close lightbox" onclick={onClose}>
     <X class="w-6 h-6" />
   </button>
   <button class="lightbox-nav lightbox-prev" aria-label="Previous image" onclick={prev}>
