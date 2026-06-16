@@ -1025,4 +1025,13 @@ body::-webkit-scrollbar-thumb:hover {
     opacity: 1;
     transform: none;
   }
+
+  .wordmark .cursor,
+  .wordmark .cursor.blink {
+    animation: none;
+  }
+
+  .portfolio-item {
+    transition: none;
+  }
 }
