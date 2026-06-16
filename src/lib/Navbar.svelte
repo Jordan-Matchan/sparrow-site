@@ -7,6 +7,8 @@
 
   let scrolled = $state(false);
   let activeSection = $state('hero');
+  let suffix = $state('');
+  let caretBlinking = $state(true);
 
   const links = [
     { id: 'hero', label: 'Home' },
@@ -33,9 +35,37 @@
     );
     sections.forEach((s) => obs.observe(s));
 
+    // Typing wordmark: "RETRO" -> types " INSOMNIUM" -> holds -> erases -> loops.
+    const word = ' INSOMNIUM'; // leading nbsp = space after "RETRO"
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let timer;
+    if (reduce) {
+      suffix = word;
+      caretBlinking = true;
+    } else {
+      const TYPE = 115, ERASE = 70, HOLD_FULL = 2400, HOLD_EMPTY = 1800;
+      let i = 0;
+      const type = () => {
+        caretBlinking = false;
+        i++;
+        suffix = word.slice(0, i);
+        if (i < word.length) timer = setTimeout(type, TYPE);
+        else { caretBlinking = true; timer = setTimeout(erase, HOLD_FULL); }
+      };
+      const erase = () => {
+        caretBlinking = false;
+        i--;
+        suffix = word.slice(0, i);
+        if (i > 0) timer = setTimeout(erase, ERASE);
+        else { caretBlinking = true; timer = setTimeout(type, HOLD_EMPTY); }
+      };
+      timer = setTimeout(type, HOLD_EMPTY);
+    }
+
     return () => {
       window.removeEventListener('scroll', onScroll);
       obs.disconnect();
+      clearTimeout(timer);
     };
   });
 </script>
@@ -48,7 +78,7 @@
       aria-label="Retro Insomnium — Home"
     >
       <img src={logo} alt="" class="h-12 md:h-14 w-auto" />
-      <span class="wordmark font-display text-3xl md:text-4xl font-bold tracking-wider">Retro Insomnium</span>
+      <span class="wordmark font-display text-3xl md:text-4xl font-bold tracking-wider">RETRO<span class="wm-suffix">{suffix}</span><span class="cursor" class:blink={caretBlinking}></span></span>
     </a>
     <div class="hidden md:flex items-center gap-1">
       {#each links as link}

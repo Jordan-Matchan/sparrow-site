@@ -16,7 +16,7 @@
           aria-label="Retro Insomnium — Home"
         >
           <img src={logo} alt="" class="h-12 w-auto" />
-          <span class="wordmark font-display text-2xl font-bold tracking-wider">Retro Insomnium</span>
+          <span class="wordmark font-display text-2xl font-bold tracking-wider">RETRO<span class="wm-suffix">&nbsp;INSOMNIUM</span></span>
         </a>
         <p class="text-xs text-textSecondary">© Sparrow Matchan {yearRange}. All rights reserved.</p>
       </div>

@@ -70,17 +70,35 @@ body::after {
   box-shadow: inset 0 0 160px rgba(0, 0, 0, 0.55);
 }
 
-/* Brand wordmark: deep purple text with a hard cyan drop shadow */
+/* Brand wordmark: CRT treatment with typed suffix + blinking caret */
 .wordmark {
-  color: #4C0E61;
-  text-shadow:
-    /* main bottom-right hard shadow */
-     2px  2px 0 #C9F6FF,
-     1px  1px 0 #C9F6FF,
-     2px  0   0 #C9F6FF,
-     0    2px 0 #C9F6FF,
-    /* tiny top halo \u2014 just a hint, smaller than the bottom shadow */
-     0   -1px 0 #C9F6FF;
+  color: var(--text);
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.wm-suffix {
+  color: var(--accent);
+  white-space: pre;
+}
+
+.wordmark .cursor {
+  display: inline-block;
+  width: 0.5ch;
+  height: 1em;
+  background: var(--accent);
+  margin-left: 4px;
+  transform: translateY(0.12em);
+}
+
+.wordmark .cursor.blink {
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 body::-webkit-scrollbar {
