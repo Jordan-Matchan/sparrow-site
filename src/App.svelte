@@ -1,6 +1,5 @@
 <script>
   import { onMount } from 'svelte';
-  import CursorGlow from './lib/CursorGlow.svelte';
   import Navbar from './lib/Navbar.svelte';
   import MobileMenu from './lib/MobileMenu.svelte';
   import Hero from './lib/Hero.svelte';
@@ -62,10 +61,6 @@
     return () => window.removeEventListener('hashchange', onHashChange);
   });
 </script>
-
-<CursorGlow />
-
-<div class="noise-overlay"></div>
 
 <div inert={modalOpen} aria-hidden={modalOpen ? 'true' : undefined}>
 <a href="#main" class="skip-link">Skip to main content</a>

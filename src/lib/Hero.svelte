@@ -11,12 +11,8 @@
   <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
     <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
       <div class="flex-shrink-0 order-2 lg:order-1">
-        <div class="avatar-container">
-          <img
-            src={artfightIcon}
-            alt="Jordan (Sparrow) Matchan"
-            class="avatar-img"
-          />
+        <div class="avatar-frame">
+          <img src={artfightIcon} alt="Jordan (Sparrow) Matchan" />
         </div>
       </div>
       <div class="order-1 lg:order-2 text-center lg:text-left">
