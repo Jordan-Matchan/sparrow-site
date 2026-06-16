@@ -128,7 +128,9 @@ body::-webkit-scrollbar-thumb:hover {
   position: fixed;
   top: 0.75rem;
   left: 0.75rem;
-  z-index: 300;
+  /* Above the scanline/vignette overlays (9998/9999) so the focused
+     skip-link is never dimmed by the CRT bands. */
+  z-index: 10000;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1022,6 +1024,14 @@ body::-webkit-scrollbar-thumb:hover {
   }
 
   .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* The staggered fade-in keeps an animation-delay even when duration is
+     near-zero, leaving links briefly invisible; neutralize it outright. */
+  .mobile-link {
+    animation: none;
     opacity: 1;
     transform: none;
   }
