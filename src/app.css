@@ -414,15 +414,17 @@ body::-webkit-scrollbar-thumb:hover {
 
 .about-img-wrapper {
   position: absolute;
-  border-radius: 16px;
+  border-radius: 0;
   overflow: hidden;
-  border: 1px solid #3a1d4d;
-  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-pixel-dark);
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease, border-color 0.5s ease;
 }
 
 .about-img-wrapper:hover {
   z-index: 10;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border-color: var(--accent);
+  box-shadow: 5px 5px 0 var(--accent-deep);
 }
 
 .about-img-large {
