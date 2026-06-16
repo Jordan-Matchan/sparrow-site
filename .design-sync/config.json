@@ -1,0 +1,8 @@
+{
+  "projectId": "37b0b4be-6d0f-49b2-a9ac-68707ca4e5bc",
+  "shape": "package",
+  "pkg": "sparrow-site",
+  "globalName": "SparrowSite",
+  "buildCmd": "echo 'tokens-only — no build step; update ds-bundle/ files manually or re-run design-sync'",
+  "readmeHeader": ".design-sync/conventions.md"
+}

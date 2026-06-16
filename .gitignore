@@ -3,3 +3,10 @@ dist
 .DS_Store
 *.local
 .vite
+
+# design-sync build output (regenerated each sync)
+ds-bundle/
+.ds-sync/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules
