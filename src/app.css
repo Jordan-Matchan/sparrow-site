@@ -118,7 +118,7 @@ body::-webkit-scrollbar-thumb:hover {
   background: #160a20;
   color: #E8F0F5;
   border: 1px solid #E781FF;
-  border-radius: 12px;
+  border-radius: 0;
   box-shadow: 0 0 0 3px rgba(201, 246, 255, 0.2), 0 8px 30px rgba(12, 6, 19, 0.55);
   font-family: 'VCR OSD Mono', ui-monospace, monospace;
   font-size: 0.85rem;
@@ -339,75 +339,65 @@ body::-webkit-scrollbar-thumb:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem 2.25rem;
-  background: linear-gradient(135deg, #E781FF, #922AB1);
-  color: #0c0613;
+  padding: 0.8rem 1.4rem;
+  background: var(--accent);
+  color: var(--ink);
   font-family: 'VCR OSD Mono', ui-monospace, monospace;
   font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  border: 0;
-  border-radius: 12px;
+  border: 2px solid var(--accent);
+  border-radius: 0;
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #922AB1, #4C0E61);
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: -1;
+  box-shadow: var(--shadow-pixel);
+  transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  color: #C9F6FF;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(76, 14, 97, 0.5);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--accent-dim);
+  color: var(--ink);
 }
 
-.btn-primary:hover::before,
-.btn-primary:focus-visible::before {
-  opacity: 1;
-}
-
-.btn-primary > * {
-  position: relative;
-  z-index: 1;
+.btn-primary:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--accent-dim);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem 2.25rem;
+  padding: 0.8rem 1.4rem;
   background: transparent;
-  color: #E8F0F5;
+  color: var(--accent);
   font-family: 'VCR OSD Mono', ui-monospace, monospace;
   font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  border-radius: 12px;
+  border: 2px solid var(--accent);
+  border-radius: 0;
   text-decoration: none;
-  border: 1px solid #3a1d4d;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: var(--shadow-pixel-deep);
+  transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus-visible {
-  border-color: #E781FF;
-  color: #E781FF;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(231, 129, 255, 0.1);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--accent-deep);
+  background: rgba(231, 129, 255, 0.07);
+  color: var(--accent);
+}
+
+.btn-sm {
+  padding: 0.55rem 0.95rem;
+  font-size: 0.7rem;
 }
 
 /* ===== About Section ===== */
