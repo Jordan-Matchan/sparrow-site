@@ -20,11 +20,22 @@
         </a>
         <p class="text-xs text-textSecondary">© Sparrow Matchan {yearRange}. All rights reserved.</p>
       </div>
-      <nav class="flex items-center gap-6 text-sm" aria-label="Footer">
-        <a href="#about" class="text-textSecondary hover:text-textPrimary transition-colors">About</a>
-        <a href="#portfolio" class="text-textSecondary hover:text-textPrimary transition-colors">Portfolio</a>
-        <a href="#contact" class="text-textSecondary hover:text-textPrimary transition-colors">Contact</a>
-      </nav>
+      <div class="flex flex-col items-center md:items-end gap-3">
+        <nav class="flex items-center gap-6 text-sm" aria-label="Footer">
+          <a href="#about" class="text-textSecondary hover:text-textPrimary transition-colors">About</a>
+          <a href="#portfolio" class="text-textSecondary hover:text-textPrimary transition-colors">Portfolio</a>
+          <a href="#contact" class="text-textSecondary hover:text-textPrimary transition-colors">Contact</a>
+        </nav>
+        <p class="text-xs text-textSecondary">
+          Site designed by
+          <a
+            href="https://mooshieblob.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-accent hover:underline underline-offset-2 transition-colors"
+          >mooshieblob</a>
+        </p>
+      </div>
     </div>
   </div>
 </footer>
