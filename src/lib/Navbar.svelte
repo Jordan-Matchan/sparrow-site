@@ -103,7 +103,11 @@
       aria-label="Retro Insomnium — Home"
     >
       <img src={logo} alt="" class="h-10 md:h-12 lg:h-14 w-auto" />
-      <span class="wordmark font-display text-2xl md:text-3xl lg:text-4xl font-bold tracking-wider">RETRO<span class="wm-suffix">{suffix}</span><span class="cursor" class:blink={caretBlinking} aria-hidden="true"></span></span>
+      <span class="wordmark wordmark-typed font-display text-2xl md:text-3xl lg:text-4xl font-bold tracking-wider">
+        <!-- Invisible full-width copy: reserves the space so typing/erasing never shifts the menu. -->
+        <span class="wm-ghost" aria-hidden="true">RETRO<span class="wm-suffix">&nbsp;INSOMNIUM</span><span class="cursor"></span></span>
+        <span class="wm-live">RETRO<span class="wm-suffix">{suffix}</span><span class="cursor" class:blink={caretBlinking} aria-hidden="true"></span></span>
+      </span>
     </a>
     <div class="hidden md:flex items-center gap-1">
       {#each links as link}

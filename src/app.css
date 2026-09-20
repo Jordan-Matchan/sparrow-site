@@ -95,6 +95,25 @@ body::after {
   animation: blink 1.1s steps(1) infinite;
 }
 
+/* Typed wordmark: the ghost and the live text share one grid cell, so the
+   link is always as wide as the full "RETRO INSOMNIUM" and the menu beside
+   it never moves while the suffix types or erases. */
+.wordmark-typed {
+  display: inline-grid;
+}
+
+.wordmark-typed .wm-ghost,
+.wordmark-typed .wm-live {
+  grid-area: 1 / 1;
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.wordmark-typed .wm-ghost {
+  visibility: hidden;
+}
+
 @keyframes blink {
   50% {
     opacity: 0;
