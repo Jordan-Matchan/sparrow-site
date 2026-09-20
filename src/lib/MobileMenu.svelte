@@ -20,10 +20,10 @@
 
   const links = [
     { href: '#hero', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#portfolio', label: 'Portfolio' },
-    { href: '#blog', label: 'Blog' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#about', label: '01 About' },
+    { href: '#portfolio', label: '02 Work' },
+    { href: '#blog', label: '03 Log' },
+    { href: '#contact', label: '04 Contact' },
   ];
 
   function focusableElements() {

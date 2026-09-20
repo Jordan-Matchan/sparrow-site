@@ -1,7 +1,8 @@
 <script>
   import { onMount } from 'svelte';
   import { ArrowRight } from 'lucide-svelte';
-  import { getPosts, formatDate } from './posts.js';
+  import { getPosts, formatDate, postNumber } from './posts.js';
+  import SectionHead from './SectionHead.svelte';
 
   const posts = getPosts();
 
@@ -23,38 +24,35 @@
   });
 </script>
 
-<section id="blog" class="relative py-24 md:py-32" bind:this={section}>
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-surface/30 to-transparent pointer-events-none"></div>
-  <div class="relative max-w-5xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-xs font-medium tracking-[0.3em] uppercase text-accent mb-4 block">Blog</span>
-      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
-        Monthly <span class="text-accent">Dispatches</span>
+<section id="blog" class="relative pt-24 md:pt-32" bind:this={section}>
+  <div class="relative max-w-7xl mx-auto px-6 flex flex-col gap-8 md:gap-12">
+    <SectionHead num="03" label="Log" note="{posts.length} dispatches · one a month" />
+
+    <div class="flex flex-col gap-4 md:gap-6">
+      <h2 class="font-display text-4xl sm:text-5xl md:text-7xl font-bold leading-[0.95]">
+        Monthly <span class="text-accent">dispatches</span>
       </h2>
-      <p class="text-textSecondary max-w-lg mx-auto">
+      <p class="text-textSecondary max-w-lg">
         What I've been working on, playing, watching and reading.
       </p>
     </div>
 
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col border-b border-border">
       {#each posts as post, i (post.slug)}
         <a
           href={`#/blog/${post.slug}`}
-          class="blog-card reveal"
+          class="ledger reveal"
           style:transition-delay={`${i * 0.08}s`}
         >
-          <div class="flex flex-col gap-2">
-            <span class="text-xs font-medium tracking-[0.25em] uppercase text-textSecondary">
-              {formatDate(post.date)}
-            </span>
-            <h3 class="font-display text-2xl md:text-3xl font-bold text-textPrimary group-hover:text-accent transition-colors">
+          <span class="big" aria-hidden="true">{postNumber(post.slug)}</span>
+          <span class="flex flex-col gap-2 md:gap-2.5">
+            <span class="mono-tag">No. {postNumber(post.slug)} · {formatDate(post.date)}</span>
+            <h3 class="font-display text-2xl md:text-4xl font-bold text-textPrimary leading-[1.1] transition-colors">
               {post.title}
             </h3>
-            <p class="text-textSecondary leading-relaxed">{post.excerpt}</p>
-            <span class="inline-flex items-center gap-2 text-accent font-medium mt-2">
-              Read post <ArrowRight class="w-4 h-4" />
-            </span>
-          </div>
+            <span class="text-sm md:text-[15px] text-textSecondary leading-relaxed max-w-3xl">{post.excerpt}</span>
+          </span>
+          <span class="btn-secondary btn-sm read">Read <ArrowRight class="w-4 h-4" /></span>
         </a>
       {/each}
     </div>

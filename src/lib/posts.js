@@ -68,6 +68,13 @@ export function getPost(slug) {
   return posts.find((p) => p.slug === slug) || null;
 }
 
+/** Dispatch number, oldest = 001, zero-padded to three digits. */
+export function postNumber(slug) {
+  const idx = posts.findIndex((p) => p.slug === slug);
+  if (idx < 0) return '000';
+  return String(posts.length - idx).padStart(3, '0');
+}
+
 export function formatDate(iso) {
   if (!iso) return '';
   const d = new Date(iso);

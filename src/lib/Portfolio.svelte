@@ -1,6 +1,7 @@
 <script>
-  import { Expand } from 'lucide-svelte';
+  import { Expand, ArrowRight } from 'lucide-svelte';
   import { portfolioItems } from './portfolioData.js';
+  import SectionHead from './SectionHead.svelte';
 
   let { onOpenLightbox } = $props();
 
@@ -14,6 +15,8 @@
   let visibleItems = $derived(
     filter === 'all' ? portfolioItems : portfolioItems.filter((i) => i.category === filter)
   );
+
+  const slotNum = String(portfolioItems.length + 1).padStart(2, '0');
 
   function handleClick(idx) {
     const items = visibleItems.map((i) => ({ src: i.src, title: i.title }));
@@ -44,28 +47,26 @@
   });
 </script>
 
-<section id="portfolio" class="relative py-24 md:py-32" bind:this={section}>
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-surface/30 to-transparent pointer-events-none"></div>
-  <div class="relative max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="text-xs font-medium tracking-[0.3em] uppercase text-accent mb-4 block">Portfolio</span>
-      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
-        Here's Some of <span class="text-accent">My Work</span>
-      </h2>
-      <p class="text-textSecondary max-w-lg mx-auto">A collection of illustrations, concept art, and 3D projects.</p>
-    </div>
+<section id="portfolio" class="relative pt-24 md:pt-32" bind:this={section}>
+  <div class="relative max-w-7xl mx-auto px-6 flex flex-col gap-8 md:gap-12">
+    <SectionHead num="02" label="Work" note="{portfolioItems.length} pieces · illustration, concept, 3D" />
 
-    <div class="flex justify-center gap-2 mb-12 flex-wrap" role="group" aria-label="Portfolio filters">
-      {#each filters as f}
-        <button
-          class="filter-btn"
-          class:active={filter === f.id}
-          aria-pressed={filter === f.id}
-          onclick={() => (filter = f.id)}
-        >
-          {f.label}
-        </button>
-      {/each}
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <h2 class="font-display text-4xl sm:text-5xl md:text-7xl font-bold leading-[0.95]">
+        Here's some<br class="hidden md:block" /> of <span class="text-accent">my work</span>
+      </h2>
+      <div class="flex gap-2 flex-wrap md:justify-end" role="group" aria-label="Portfolio filters">
+        {#each filters as f}
+          <button
+            class="filter-btn"
+            class:active={filter === f.id}
+            aria-pressed={filter === f.id}
+            onclick={() => (filter = f.id)}
+          >
+            {f.label}
+          </button>
+        {/each}
+      </div>
     </div>
 
     <div class="portfolio-grid">
@@ -74,10 +75,12 @@
           type="button"
           class="portfolio-item reveal"
           class:portfolio-item-wide={item.wide}
+          class:portfolio-item-feat={item.feat}
           onclick={() => handleClick(i)}
           style:transition-delay={`${Math.min(i, 6) * 0.06}s`}
           aria-label={`Open ${item.title}`}
         >
+          <span class="tile-label"><b>{item.num}</b>{item.title} <span class="tl-cat"><b>//</b> {item.label}</span></span>
           <img src={item.src} alt={item.title} class="portfolio-img" />
           <div class="portfolio-overlay">
             <span class="portfolio-category">{item.label}</span>
@@ -88,6 +91,18 @@
           </div>
         </button>
       {/each}
+      <a href="#contact" class="commission reveal">
+        <span class="mono-tag text-accent">&gt; slot {slotNum} open<span class="cursor blink inline-block align-middle ml-1" style="width: 0.5ch; height: 1em; background: var(--accent);" aria-hidden="true"></span></span>
+        <div class="flex flex-col gap-3">
+          <h3 class="font-display text-2xl md:text-4xl font-bold leading-none">Your project here</h3>
+          <p class="text-xs md:text-sm text-textSecondary leading-relaxed">
+            Taking commissions for characters, concepts, environments and game-ready 3D.
+          </p>
+          <span class="inline-flex items-center gap-2 text-accent text-xs font-bold tracking-[0.1em] uppercase">
+            Get in touch <ArrowRight class="w-4 h-4" />
+          </span>
+        </div>
+      </a>
     </div>
   </div>
 </section>

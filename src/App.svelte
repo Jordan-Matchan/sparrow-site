@@ -3,6 +3,7 @@
   import Navbar from './lib/Navbar.svelte';
   import MobileMenu from './lib/MobileMenu.svelte';
   import Hero from './lib/Hero.svelte';
+  import Tape from './lib/Tape.svelte';
   import About from './lib/About.svelte';
   import Portfolio from './lib/Portfolio.svelte';
   import Blog from './lib/Blog.svelte';
@@ -75,6 +76,7 @@
   <Admin />
 {:else}
   <Hero />
+  <Tape />
   <About />
   <Portfolio onOpenLightbox={openLightbox} />
   <Blog />

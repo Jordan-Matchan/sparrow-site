@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { Menu } from 'lucide-svelte';
+  import { Menu, ArrowDownRight } from 'lucide-svelte';
   import logo from '../assets/logo.svg';
 
   let { onOpenMobileMenu } = $props();
@@ -12,11 +12,13 @@
 
   const links = [
     { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'portfolio', label: 'Portfolio' },
-    { id: 'blog', label: 'Blog' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'about', num: '01', label: 'About' },
+    { id: 'portfolio', num: '02', label: 'Work' },
+    { id: 'blog', num: '03', label: 'Log' },
+    { id: 'contact', num: '04', label: 'Contact' },
   ];
+
+  const year = new Date().getFullYear();
 
   onMount(() => {
     const onScroll = () => {
@@ -35,10 +37,10 @@
     );
     sections.forEach((s) => obs.observe(s));
 
-    // Typing wordmark: "RETRO" -> types " INSOMNIUM" -> holds -> erases -> loops.
+    // Typing wordmark: "RETRO" -> types " INSOMNIUM" -> holds -> erases -> loops.
     // U+00A0 (non-breaking space) keeps the gap after "RETRO" robust without
     // relying on `white-space: pre` — mirrors the static Footer wordmark.
-    const word = ' INSOMNIUM';
+    const word = ' INSOMNIUM';
     const mql = window.matchMedia('(prefers-reduced-motion: reduce)');
     let timer;
 
@@ -87,29 +89,40 @@
 </script>
 
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" class:scrolled aria-label="Primary">
-  <div class="nav-inner max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+  <div class="status-bar" aria-label="Status">
+    <span>CH 01</span>
+    <span class="hide-sm">Retro Insomnium</span>
+    <span>Signal OK</span>
+    <span class="text-accent">Available for freelance</span>
+    <span class="hide-sm">{year}</span>
+  </div>
+  <div class="nav-inner max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
     <a
       href="#hero"
       class="flex items-center gap-3 transition-opacity duration-300 hover:opacity-80"
       aria-label="Retro Insomnium — Home"
     >
-      <img src={logo} alt="" class="h-12 md:h-14 w-auto" />
-      <span class="wordmark font-display text-3xl md:text-4xl font-bold tracking-wider">RETRO<span class="wm-suffix">{suffix}</span><span class="cursor" class:blink={caretBlinking} aria-hidden="true"></span></span>
+      <img src={logo} alt="" class="h-10 md:h-12 lg:h-14 w-auto" />
+      <span class="wordmark font-display text-2xl md:text-3xl lg:text-4xl font-bold tracking-wider">RETRO<span class="wm-suffix">{suffix}</span><span class="cursor" class:blink={caretBlinking} aria-hidden="true"></span></span>
     </a>
     <div class="hidden md:flex items-center gap-1">
       {#each links as link}
         <a
           href={`#${link.id}`}
-          class="nav-link"
+          class="nav-link whitespace-nowrap"
           class:active={activeSection === link.id}
           aria-current={activeSection === link.id ? 'location' : undefined}
         >
-          {link.label}
+          {#if link.num}<span class="hidden lg:inline">{link.num}&nbsp;</span>{/if}{link.label}
         </a>
       {/each}
     </div>
+    <div class="hidden lg:block">
+      <a href="#contact" class="btn-primary btn-sm">Hire me <ArrowDownRight class="w-4 h-4" /></a>
+    </div>
     <button
-      class="md:hidden text-textPrimary hover:text-accent transition-colors"
+      class="md:hidden w-11 h-11 flex items-center justify-center border border-border-mid text-textPrimary hover:text-accent hover:border-accent transition-colors"
+      style="border-color: var(--border-mid);"
       aria-label="Toggle menu"
       onclick={onOpenMobileMenu}
     >
