@@ -1177,9 +1177,17 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /* Hero lockup */
+/* The name is sized to its own column (container query units), never the
+   viewport, so it can't run under the monitor on wide screens. "Matchan" is
+   3.57em wide in Grape Soda; 26cqw leaves room for the outline stroke. */
+.hero-col {
+  container-type: inline-size;
+}
+
 .hero-name {
   font-family: var(--font-display);
   font-size: clamp(56px, 11.5vw, 168px);
+  font-size: min(168px, max(56px, 26cqw));
   line-height: 0.86;
   letter-spacing: 0.01em;
   display: flex;

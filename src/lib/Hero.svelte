@@ -10,8 +10,8 @@
   <Pixels cols={8} rows={5} class="hidden lg:block" style="right: 6rem; bottom: 9rem;" />
 
   <div class="relative z-10 max-w-7xl mx-auto px-6 pt-40 pb-32 md:pt-48 md:pb-40 w-full">
-    <div class="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_560px] gap-10 lg:gap-16 items-center">
-      <div class="flex flex-col gap-6 md:gap-7 min-w-0">
+    <div class="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_520px] gap-10 lg:gap-16 items-center">
+      <div class="hero-col flex flex-col gap-6 md:gap-7 min-w-0">
         <span class="mono-tag text-accent tracking-[0.3em]">// Jordan (Sparrow) Matchan · 3D &amp; 2D artist · She / They</span>
         <h1 class="hero-name">
           <span class="text-accent">Sparrow</span>
