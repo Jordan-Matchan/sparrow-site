@@ -1,5 +1,20 @@
 # Design Sync Notes — sparrow-site
 
+## Current home of the design language
+
+The Sparrow Design Language now lives as a **Design System artifact** built from this repo's
+CRT Revival code (`src/app.css`, `tailwind.config.js`, fonts, logo and artwork):
+
+<https://claude.ai/artifact/Y2UadN6FqcQimbJcG5fQnP>
+
+It holds the tokens (21 colours, type scale, spacing, shadows), a brand book, and a live preview
+plus guidelines for every component the site has. Agents building on the brand read that
+artifact's `project/README.md`. The site redesign canvas built on it:
+<https://claude.ai/artifact/4Z7VoNhcfQmnh4SsuPw2nA>.
+
+The claude.ai/design project below (`config.json`) is the older tokens-only sync and predates
+the CRT restyle; treat the artifact as the source of truth.
+
 ## Context
 
 This is a **tokens-only / style-guide sync** — not a React component library. `sparrow-site` is a Svelte 5 personal portfolio website. The sync was chosen to make the Sparrow visual language (colors, fonts, CSS patterns) available in claude.ai/design for creating matching visual work.
