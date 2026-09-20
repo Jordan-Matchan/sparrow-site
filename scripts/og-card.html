@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:"Grape Soda";src:url("../src/assets/fonts/GrapeSoda.ttf")}
+@font-face{font-family:"VCR OSD Mono";src:url("../src/assets/fonts/VCR_OSD_MONO.ttf")}
+html,body{margin:0}
+body{width:1200px;height:630px;overflow:hidden;background:#0c0613;color:#e8f0f5;font-family:"VCR OSD Mono",monospace;position:relative;
+  background-image:linear-gradient(rgba(231,129,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(231,129,255,0.022) 1px,transparent 1px);background-size:7px 7px}
+.scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(rgba(0,0,0,0) 0 2px,rgba(0,0,0,0.14) 2px 3px);mix-blend-mode:multiply;z-index:9}
+.vig{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 160px rgba(0,0,0,0.55);z-index:8}
+.status{display:flex;justify-content:space-between;padding:12px 48px;border-bottom:1px solid #3a1d4d;background:#160a20;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#a98dc0}
+.status .on{color:#e781ff}
+.wm{position:absolute;left:48px;top:64px;display:flex;align-items:center;gap:14px}
+.wm span{font-family:"Grape Soda";font-size:30px;letter-spacing:0.05em}
+.wm b{color:#e781ff;font-weight:400}
+.caret{display:inline-block;width:0.5ch;height:1em;background:#e781ff;margin-left:4px;transform:translateY(0.12em)}
+.tag{font-size:13px;letter-spacing:0.3em;text-transform:uppercase;color:#e781ff}
+.name{position:absolute;left:48px;top:158px;font-family:"Grape Soda";font-size:132px;line-height:0.86;letter-spacing:0.01em;display:flex;flex-direction:column}
+.name .a{color:#e781ff}
+.name .h{color:transparent;-webkit-text-stroke:2px #e8f0f5}
+.lede{position:absolute;left:48px;top:432px;width:520px;font-size:17px;line-height:1.6;color:#a98dc0}
+.mono{font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:#a98dc0}
+.bezel{position:absolute;right:48px;top:118px;width:440px;background:#160a20;border:1px solid #5a2d6d;box-shadow:8px 8px 0 #4c0e61;padding:14px}
+.screw{position:absolute;width:6px;height:6px;background:#5a2d6d}
+.screen{display:block;height:296px;border:2px solid #e781ff;overflow:hidden;background:#0c0613}
+.screen img{width:100%;height:100%;object-fit:cover;display:block}
+.row{display:flex;justify-content:space-between;align-items:center}
+.led{width:8px;height:8px;background:#3a1d4d;display:inline-block;margin-left:6px}.led.on{background:#e781ff;box-shadow:0 0 0 2px rgba(231,129,255,0.2)}
+.dot{display:inline-block;width:8px;height:8px;background:#e781ff;box-shadow:0 0 0 3px rgba(231,129,255,0.2);margin-right:8px;vertical-align:middle}
+.tape{position:absolute;left:0;right:0;bottom:0;background:#e781ff;color:#18061f;padding:14px 0;white-space:nowrap;font-size:13px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;display:flex;gap:40px;overflow:hidden;padding-left:48px}
+.tape b{font-weight:400;color:#4c0e61}
+.pix{position:absolute}
+</style></head><body>
+<div class="scan"></div><div class="vig"></div>
+<div class="status"><span>CH 01</span><span>Retro Insomnium</span><span>Signal OK</span><span class="on">Available for freelance</span><span>2026</span></div>
+<div class="wm"><img src="../src/assets/logo.svg" style="height:48px" alt=""><span>RETRO<b>&nbsp;INSOMNIUM</b><i class="caret"></i></span></div>
+<div class="tag" style="position:absolute;left:48px;top:122px">// Jordan (Sparrow) Matchan · She / They</div>
+<div class="name"><span class="a">Sparrow</span><span class="h">Matchan</span></div>
+<div class="lede">Stylised art and models for games — character, concept and environment design, 3D texturing &amp; VFX.</div>
+<svg class="pix" style="left:600px;top:470px" width="112" height="56" viewBox="0 0 112 56"><g fill="#922ab1"><rect x="0" y="0" width="4" height="4"/><rect x="0" y="28" width="4" height="4"/><rect x="0" y="42" width="4" height="4"/><rect x="14" y="14" width="4" height="4"/><rect x="14" y="28" width="4" height="4"/><rect x="28" y="0" width="4" height="4"/><rect x="28" y="14" width="4" height="4"/><rect x="28" y="42" width="4" height="4"/><rect x="42" y="0" width="4" height="4"/><rect x="42" y="28" width="4" height="4"/><rect x="42" y="42" width="4" height="4"/><rect x="56" y="14" width="4" height="4"/><rect x="56" y="28" width="4" height="4"/><rect x="70" y="0" width="4" height="4"/><rect x="70" y="14" width="4" height="4"/><rect x="70" y="42" width="4" height="4"/><rect x="84" y="0" width="4" height="4"/><rect x="84" y="28" width="4" height="4"/><rect x="84" y="42" width="4" height="4"/><rect x="98" y="14" width="4" height="4"/><rect x="98" y="28" width="4" height="4"/></g></svg>
+<div class="bezel">
+  <span class="screw" style="left:5px;top:5px"></span><span class="screw" style="right:5px;top:5px"></span><span class="screw" style="left:5px;bottom:5px"></span><span class="screw" style="right:5px;bottom:5px"></span>
+  <div class="row" style="margin-bottom:10px"><span class="mono">CH 01 · reeds-room-concept.webp</span><span class="mono" style="color:#e781ff"><span class="dot"></span>Rec 00:00:14</span></div>
+  <div class="screen"><img src="../src/assets/images/reeds-room-concept.webp" alt=""></div>
+  <div class="row" style="margin-top:10px"><span class="mono">Reed's Room · environment concept</span><span><i class="led on"></i><i class="led on"></i><i class="led"></i><i class="led"></i></span></div>
+</div>
+<div class="tape"><span>Character design</span><b>//</b><span>Concept art</span><b>//</b><span>Environment design</span><b>//</b><span>3D texturing</span><b>//</b><span>VFX</span><b>//</b><span>Stylised game art</span><b>//</b><span>Character design</span></div>
+</body></html>
